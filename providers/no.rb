@@ -23,7 +23,7 @@ end
 
 # loading current resource
 def load_current_resource
-  @current_resource = Chef::Resource::AixNo.new(@new_resource.name)
+  @current_resource = new_resource.class.new(new_resource.name)
 
   # no can always be modified so resource always exists
   @current_resource.exists = true
