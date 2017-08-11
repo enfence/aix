@@ -23,7 +23,7 @@ end
 
 # loading current resource
 def load_current_resource
-  @current_resource = Chef::Resource::AixEtchosts.new(@new_resource.name)
+  @current_resource = Chef::Resource.resource_for_node(:aix_etchosts, node).new(@new_resource.name)
 
   # we say by default that the entry is no in the /etc/hosts file
   @current_resource.exists = false

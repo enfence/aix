@@ -25,7 +25,7 @@ def whyrun_supported?
 end
 
 def load_current_resource
-  @current_resource = Chef::Resource::AixSubsystem.new(@new_resource.name)
+  @current_resource = Chef::Resource.resource_for_node(:aix_subsystem, node).new(@new_resource.name)
   @current_resource.exists = false
   so = shell_out("lssrc -S -s #{@new_resource.subsystem_name}")
   return if so.stdout.lines.empty?

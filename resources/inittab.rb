@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-actions :install, :remove
+# actions :install, :remove # foodcritic FC092
 
 property :identifier, name_property: true, kind_of: String
 property :runlevel, kind_of: String, required: true

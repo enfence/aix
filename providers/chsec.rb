@@ -23,7 +23,7 @@ end
 
 # loading current resource
 def load_current_resource
-  @current_resource = Chef::Resource::AixChsec.new(@new_resource.name)
+  @current_resource = Chef::Resource.resource_for_node(:aix_chsec, node).new(@new_resource.name)
 
   # resource exists only if the file exists
   if ::File.exist?(@current_resource.name)

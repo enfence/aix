@@ -23,7 +23,7 @@ end
 
 # loading current resource
 def load_current_resource
-  @current_resource = Chef::Resource::AixChdev.new(@new_resource.name)
+  @current_resource = Chef::Resource.resource_for_node(:aix_chdev, node).new(@new_resource.name)
   @current_resource.exists = false
 
   # does the device exists

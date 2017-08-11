@@ -22,7 +22,7 @@ def whyrun_supported?
 end
 
 def load_current_resource
-  @current_resource = Chef::Resource::AixTcpservice.new(@new_resource.name)
+  @current_resource = Chef::Resource.resource_for_node(:aix_tcpservice, node).new(@new_resource.name)
 
   so = shell_out("egrep '^start /usr/(sbin|lib)/#{@new_resource.identifier}' /etc/rc.tcpip")
   @current_resource.enabled = so.exitstatus == 0
